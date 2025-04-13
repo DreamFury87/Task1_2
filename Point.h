@@ -10,6 +10,8 @@ public:
 	// Другие методы
 	void Show() const;
 
+	void operator +=(Point&);
+
 public:
 	double x, y;
 };

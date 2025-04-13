@@ -56,15 +56,9 @@ void Triangle::Show() const {
 	v1.Show(); v2.Show(); v3.Show();
 	cout << endl;
 }
-// Показать стороны и площадь объекта
-void Triangle::ShowSideAndArea() const{
-	double p = (a + b + c) / 2;
-	double s = sqrt(p * (p - a) * (p - b) * (p - c));
-	cout << " • " << endl;
-	cout << name << ":";
-	cout.precision(4); 
-	cout << " a= " << setw(5) << a;
-	cout << ". b= " << setw(5) << b;
-	cout << ". c= " << setw(5) << c;
-	cout << ";\ts= " << s << endl;
+
+void Triangle::Move(Point dp){
+	v1 += dp;
+	v2 += dp;
+	v3 += dp;
 }

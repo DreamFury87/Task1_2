@@ -16,7 +16,8 @@ public:
 	Point Get_v3() const { return v3; } // Получить значение v3
 	char* GetName() const { return name; } // Получить имя объекта
 	void Show() const; // Показать объект
-	void ShowSideAndArea() const; // Показать стороны и площадь объекта
+	
+	void Move(Point);
 
 public:
 	static int count; //кол-во созданных объектов
