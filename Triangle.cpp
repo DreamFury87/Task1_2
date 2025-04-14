@@ -105,3 +105,13 @@ Triangle& Triangle::operator =(const Triangle& tria) {
 	a = tria.a; b = tria.b; c = tria.c;
 	return *this;
 }
+
+bool TriaInTria(Triangle tria1, Triangle tria2) {
+	Point v1 = tria1.Get_v1();
+	Point v2 = tria1.Get_v2();
+	Point v3 = tria1.Get_v3();
+	return (v1.InTriangle(tria2) &&
+			v2.InTriangle(tria2) &&
+			v3.InTriangle(tria2));
+	//return true;
+}

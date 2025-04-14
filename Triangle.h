@@ -22,6 +22,8 @@ public:
 	bool operator >(const Triangle&) const;
 	Triangle& operator =(const Triangle&);
 
+	// ќпределить, входит ли один треугольник во второй
+	friend bool TriaInTria(Triangle, Triangle);
 public:
 	static int count; //кол-во созданных объектов
 
@@ -33,6 +35,7 @@ private:
 	double b; // сторона, соедин€юща€ v2 и v3
 	double c; // сторона, соедин€юща€ v1 и v3
 };
+
 
 #endif /* TRIANGLE Ќ */
 

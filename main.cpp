@@ -131,7 +131,19 @@ void FindMax(Triangle* p_tria[], int k) {
 // определение отношения включения
 void IsIncluded(Triangle* p_tria[], int k) {
 	cout << "======== Отношение включения ==========" << endl;
-	// здесь будет код функции...
+	cout << "Введите номер 1-го треугольника (от 1 до " << k << " ) : ";
+	int i1 = GetNumber(1, k) - 1;
+
+	cout << "Введите номер 2-го треугольника (от 1 до " << k << " ) : ";
+	int i2 = GetNumber(1, k) - 1;
+
+	if(TriaInTria(*p_tria[i1], *p_tria[i2]))
+		cout << p_tria[i1]->GetName() << " - входит в - "
+		<< p_tria[i2]->GetName() << endl;
+	else
+		cout << p_tria[i1]->GetName() << " - не входит в - "
+		<< p_tria[i2]->GetName() << endl;
+
 	ExitBack();
 }
 
