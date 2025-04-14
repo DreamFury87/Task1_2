@@ -62,3 +62,46 @@ void Triangle::Move(Point dp){
 	v2 += dp;
 	v3 += dp;
 }
+
+bool Triangle::operator >(const Triangle& tria) const {
+	// Сравнить объект (по площади) с объектом tria
+	double p = (a + b + c) / 2;
+	double s = sqrt(p * (p - a) * (p - b) * (p - c));
+
+	double p1 = (tria.a + tria.b + tria.c) / 2;
+	double s1 = sqrt(p1 * (p1 - tria.a) * (p1 - tria.b) * (p1 - tria.c));
+	if (s > s1)
+		return true;
+	else 
+		return false;
+}
+
+//конструктор копирования
+Triangle::Triangle(const Triangle& tria) : v1(tria.v1), v2(tria.v2), 
+v3(tria.v3) {
+	
+	cout << "Copy constructor for: " << tria.objID << endl; // отладочный вывод
+	objID = new char[strlen(tria.objID) + strlen("(кoпия)") + 1];
+
+	strcpy(objID, tria.objID);
+	strcat(objID, "(копия)");
+
+	name = new char[strlen(tria.name) + 1];
+	strcpy(name, tria.name);
+	a = tria.a;
+	b = tria.b;
+	c = tria.c;
+}
+
+// Присвоить значение объекта tria
+Triangle& Triangle::operator =(const Triangle& tria) {
+	cout << "Assign operator: " << objID << " = " << tria.objID << endl;
+	// отладочный вывод
+	if(&tria == this) return *this;
+
+	delete[] name;
+	name = new char[strlen(tria.name) + 1];
+	strcpy(name, tria.name);
+	a = tria.a; b = tria.b; c = tria.c;
+	return *this;
+}

@@ -10,6 +10,7 @@ public:
 	Triangle(Point, Point, Point, const char*); // конструктор
 	Triangle(const char*); //конструктор пустого (нулевого) объекта 
 	~Triangle(); //деструктор
+	Triangle(const Triangle&); //конструктор копирования
 
 	Point Get_v1() const { return v1; } // Получить значение v1
 	Point Get_v2() const { return v2; } // Получить значение v2
@@ -18,6 +19,8 @@ public:
 	void Show() const; // Показать объект
 	
 	void Move(Point);
+	bool operator >(const Triangle&) const;
+	Triangle& operator =(const Triangle&);
 
 public:
 	static int count; //кол-во созданных объектов
